@@ -1,4 +1,4 @@
-A python  library for swizzling / deswizzling of video games textures.
+A python library which allow to swizzle and deswizzle some video games textures. Supported platforms: Nintendo Switch and PS4
 
 # Usage
 
