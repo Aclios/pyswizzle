@@ -2,19 +2,31 @@ A python  library for swizzling / deswizzling of video games textures.
 
 # Usage
 
-Nintendo Switch:
+## Nintendo Switch:
 
-<code>from pyswizzle import nsw_deswizzle, nsw_swizzle
+<code>from pyswizzle import nsw_deswizzle, nsw_swizzle</code>
 
-deswizzled_bytes = nsw_deswizzle(bytes, im_size, block_size, bytes_per_block, swizzle_mode) #deswizzle bytes
-swizzled_bytes = nsw_swizzle(bytes, im_size, block_size, bytes_per_block, swizzle_mode) #swizzle bytes </code>
+Deswizzle bytes:
 
-PS4:
+<code>deswizzled_bytes = nsw_deswizzle(bytes, im_size, block_size, bytes_per_block, swizzle_mode)</code>
 
-<code>from pyswizzle import ps4_deswizzle, ps4_swizzle
+Swizzle bytes:
 
-deswizzled_bytes = ps4_deswizzle(bytes, im_size, block_size, bytes_per_block) #deswizzle bytes
-swizzled_bytes = ps4_deswizzle(bytes, im_size, block_size, bytes_per_block) #swizzle bytes</code>
+<code>swizzled_bytes = nsw_swizzle(bytes, im_size, block_size, bytes_per_block, swizzle_mode)</code>
+
+## PS4:
+
+<code>from pyswizzle import ps4_deswizzle, ps4_swizzle</code>
+
+Deswizzle bytes:
+
+<code>deswizzled_bytes = ps4_deswizzle(bytes, im_size, block_size, bytes_per_block)</code>
+
+Swizzle bytes:
+
+<code>swizzled_bytes = ps4_deswizzle(bytes, im_size, block_size, bytes_per_block)</code>
+
+# Parameters
 
 bytes: a bytes-like object, representing image data
 
@@ -32,5 +44,6 @@ swizzle_mode: the swizzle mode, for Nintendo Switch.
 
 Not all images can be swizzled or deswizzled, they might require some padding. 
 
-For Nintendo Switch, the image width must be a multiple of 64 x block_width / bytes_per_block, and the image_height a multiple of 8 x block_height x (2\*\*swizzle_mode)
-For PS4, the image width must be a multiple of 8 x block_width, and the image_height a multiple of 8 x block_height
+For Nintendo Switch, the image width must be a multiple of *64 x block_width / bytes_per_block* pixels, <br>and the image_height a multiple of *8 x block_height x (2\*\*swizzle_mode)* pixels.
+
+For PS4, the image width must be a multiple of *8 x block_width* pixels, <br>and the image_height a multiple of *8 x block_height* pixels.
